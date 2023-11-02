@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task1</title>
+  </head>
+  <body>
+    <ol id="list">
+      <li>Element 1</li>
+      <li id="second">Element 2</li>
+      <li>Element 3</li>
+      <li>Element 4</li>
+      <li>Element 5</li>
+    </ol>
+
+    <script>
+      const list = document.getElementById("list");
+      const secondEl = document.querySelector("#second");
+
+      alert(`1) First: ${list.firstElementChild.textContent}`);
+      alert(`2) Last: ${list.lastElementChild.textContent}`);
+      alert(`3) Second: ${secondEl.textContent}`);
+      alert(`4) Fourth: ${list.children[3].textContent}`);
+      alert(`5) Third: ${list.children[2].textContent}`);
+    </script>
+  </body>
+</html>

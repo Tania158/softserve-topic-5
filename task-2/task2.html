@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .green {
+        background-color: #70f57e;
+      }
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>I'am a big header!!!</h1>
+    <div id="myDiv">
+      <p>First paragraph</p>
+      <p>Second paragraph</p>
+      <p>Third paragraph</p>
+      <p>Fourth paragraph</p>
+    </div>
+    <ul id="myList">
+      <li>Make</li>
+      <li>me</li>
+      <li>horizontal!</li>
+    </ul>
+    <span>Make me invisible, please!</span>
+
+    <script>
+      // 1
+      const title = document.querySelector("h1").classList.add("green");
+
+      // 2
+      const myDiv = document.getElementById("myDiv");
+      const firstParagraph = myDiv.firstElementChild;
+      firstParagraph.innerHTML = `<strong>${firstParagraph.textContent}</strong>`;
+
+      // 3
+      myDiv.children[1].classList.add("red");
+
+      // 4
+      myDiv.children[2].innerHTML = `<em>${myDiv.children[2].textContent}</em>`;
+
+      // 5
+      myDiv.children[3].innerHTML = `<u>${myDiv.children[3].textContent}</u>`;
+
+      // 6
+      const myList = document.querySelectorAll("#myList li");
+      let string = "";
+      myList.forEach((el) => {
+        string += el.textContent;
+      });
+      document.getElementById("myList").innerHTML = string;
+
+      // 7
+      document.body.children[3].setAttribute("hidden", "true");
+    </script>
+  </body>
+</html>

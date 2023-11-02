@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="task5.css" />
+  </head>
+  <body>
+    <div class="box">
+      <div class="items">
+        <div class="circle" data-anim="zoom-in">
+          <h3>1</h3>
+        </div>
+        <p>lorem</p>
+      </div>
+
+      <div class="items">
+        <div class="circle" data-anim="rotate">
+          <h3>2</h3>
+        </div>
+        <p>lorem</p>
+      </div>
+
+      <div class="items">
+        <div class="circle" data-anim="translate-down">
+          <h3>3</h3>
+        </div>
+        <p>lorem</p>
+      </div>
+
+      <div class="items">
+        <div class="circle" data-anim="translate-left-down">
+          <h3>4</h3>
+        </div>
+        <p>lorem</p>
+      </div>
+
+      <div class="items">
+        <div class="circle" data-anim="translate-right-down">
+          <h3>5</h3>
+        </div>
+        <p>lorem</p>
+      </div>
+    </div>
+
+    <script>
+      const circles = document.querySelectorAll(".circle");
+
+      circles.forEach((element) => {
+        let dataAnimValue = element.getAttribute("data-anim");
+        element.classList.add(dataAnimValue);
+
+        if (element.classList.contains(dataAnimValue)) {
+          console.log("Елемент містить клас " + dataAnimValue);
+        } else {
+          console.log("Елемент не містить клас " + dataAnimValue);
+        }
+      });
+    </script>
+  </body>
+</html>

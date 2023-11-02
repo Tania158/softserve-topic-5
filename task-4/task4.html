@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="task4.css" />
+  </head>
+  <body>
+    <div class="array">
+      <h1>Масиви в Java Script</h1>
+      <fieldset>
+        <legend align="center">Поля які будуть входити до масиву</legend>
+        <input
+          type="text"
+          data-form="ПІБ"
+          class="text-data arr"
+          name="fio"
+          placeholder="Введіть ПІБ"
+        />
+        <input
+          type="phone"
+          data-form="Номер телефону"
+          class="arr"
+          name="phone"
+          placeholder="+380-00-000-0000"
+        />
+        <input
+          type="date"
+          data-form="Дата народження"
+          class="arr"
+          name="birthday"
+        />
+        <input
+          type="email"
+          data-form="Електронна пошта"
+          class="arr"
+          placeholder="email@softserveinc.com"
+          name="email"
+        />
+        <input type="submit" class="btn" />
+      </fieldset>
+      <div class="out"></div>
+    </div>
+
+    <script>
+      const submitBtn = document.querySelector(".btn");
+      const outputDiv = document.querySelector(".out");
+
+      submitBtn.addEventListener("click", function (e) {
+        e.preventDefault(); // Зупиняємо дію за замовчуванням (відправку форми)
+
+        const inputElements = document.querySelectorAll(".arr");
+
+        let data = {};
+
+        inputElements.forEach(function (input) {
+          let fieldName = input.getAttribute("data-form");
+          let value = input.value;
+          data[fieldName] = value;
+        });
+
+        outputDiv.innerHTML = "";
+        for (const element of Object.entries(data)) {
+          let div = element.join(": ");
+          outputDiv.innerHTML += `<div>${div}</div>`;
+        }
+      });
+    </script>
+  </body>
+</html>

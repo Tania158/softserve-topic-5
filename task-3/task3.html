@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const body = document.querySelector("body");
+      const main = document.createElement("main");
+      const div = document.createElement("div");
+      const p = document.createElement("p");
+
+      main.setAttribute("class", "mainClass check item");
+      div.setAttribute("id", "myDiv");
+
+      p.textContent = "First paragraph";
+
+      div.appendChild(p);
+      main.appendChild(div);
+      body.prepend(main);
+
+      document.documentElement.appendChild(body);
+    </script>
+  </body>
+</html>
