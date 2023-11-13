@@ -7,7 +7,6 @@
   </head>
   <body>
     <script>
-      const body = document.querySelector("body");
       const main = document.createElement("main");
       const div = document.createElement("div");
       const p = document.createElement("p");
@@ -19,9 +18,9 @@
 
       div.appendChild(p);
       main.appendChild(div);
-      body.prepend(main);
+      document.body.prepend(main);
 
-      document.documentElement.appendChild(body);
+      document.documentElement.appendChild(document.body);
     </script>
   </body>
 </html>

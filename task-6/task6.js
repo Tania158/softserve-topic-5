@@ -7,54 +7,46 @@ const sizes = document.querySelectorAll(".sizes .size");
 let selectedPrice = 0;
 let activeShoeColorBtn = shoeColorBtns[0];
 let activeSize = sizes[0];
+let color = "";
 
-function updateDisplay(shoeColorBtn, activeSize) {
-  const color = shoeColorBtn.getAttribute("color");
-  const price = parseFloat(shoeColorBtn.getAttribute("data-price"));
+function updateDisplay() {
+  color = activeShoeColorBtn.getAttribute("color");
+  const price = parseFloat(activeShoeColorBtn.getAttribute("data-price"));
   const activeSizePrice = +activeSize.getAttribute("data-size");
 
   selectedPrice = price + activeSizePrice;
   outprice.innerHTML = selectedPrice.toFixed(2);
 
-  shoeColorBtns.forEach((btn) => {
-    btn.classList.remove("active");
-  });
-  shoeColorBtn.classList.add("active");
+  changeClass(shoeColorBtns, "active");
+  changeClass(gradients, "second");
+  changeClass(shoeImages, "show");
+  changeClass(sizes, "active");
+}
 
-  shoeImages.forEach((img) => {
-    img.classList.remove("show");
+function changeClass(elements, className) {
+  elements.forEach((element) => {
+    element.classList.remove(className);
 
-    if (img.getAttribute("color") === color) {
-      img.classList.add("show");
+    if (element.getAttribute("color") === color) {
+      element.classList.add(className);
+    } else {
+      activeSize.classList.add(className);
     }
   });
-
-  gradients.forEach((gradient) => {
-    gradient.classList.remove("second");
-
-    if (gradient.getAttribute("color") === color) {
-      gradient.classList.add("second");
-    }
-  });
-
-  sizes.forEach((size) => {
-    size.classList.remove("active");
-  });
-  activeSize.classList.add("active");
 }
 
 shoeColorBtns.forEach((shoeColorBtn) => {
   shoeColorBtn.addEventListener("click", () => {
     activeShoeColorBtn = shoeColorBtn;
-    updateDisplay(activeShoeColorBtn, activeSize);
+    updateDisplay();
   });
 });
 
 sizes.forEach((size) => {
   size.addEventListener("click", () => {
     activeSize = size;
-    updateDisplay(activeShoeColorBtn, activeSize);
+    updateDisplay();
   });
 });
 
-updateDisplay(activeShoeColorBtn, activeSize);
+updateDisplay();
